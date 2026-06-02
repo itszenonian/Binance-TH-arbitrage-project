@@ -8,6 +8,9 @@ import msvcrt # Built-in Windows library to detect key presses
 import hmac
 import hashlib
 from urllib.parse import urlencode
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # print(">>> PRESS 'q' or 's' ON YOUR KEYBOARD TO STOP <<<")
 # 1st check balance amount of THB
@@ -27,8 +30,8 @@ symbols_to_request = '["BTCUSDT","BTCTHB","USDTTHB"]'
 data_history = []
 
 # API credentials
-api_key = '341E7465A382B67AF6BD2C0402C30C71C1953ED8DFFFA36B900C38BCAADD2D76'
-secret_key = '72B1EA6C67397D6C2B1D4653C09E27028832EDBD65748A2A571F8297969AA539'
+api_key    = os.getenv("BINANCE_TH_API_KEY", "")
+secret_key = os.getenv("BINANCE_TH_SECRET_KEY", "")
 
 headers = {
     'Accept': 'application/json',
